@@ -37,6 +37,7 @@ For every color variant:
 - Use GPT Image 2.0 through the built-in image generation workflow.
 - Preserve the same model identity and the fixed body proportions: 1.68m height, 7.5-head ratio, 0.64 leg-length ratio.
 - Preserve the same base indoor set and approved four-shot script structure.
+- Preserve the same styling-completion logic and footwear rule. Unless the user explicitly requested barefoot styling, the model must wear suitable shoes.
 - Preserve the exact garment construction: silhouette, neckline, sleeve/strap design, length, hem, seams, ruffles, pleats, closures, fabric type, and decorative details.
 - Change only the garment color and color-dependent fabric appearance based on the new color reference.
 - Allow only small prop/decor changes when the user approves them. Examples: flower color, small vase color, fabric accent, small decorative object, or greenery tone. Do not change architecture, major furniture, camera angle logic, model styling, script purpose, or room identity.

@@ -1,6 +1,6 @@
 ---
 name: commercial-fashion-shoot-generator
-description: "Analyze user-provided model and womenswear product images through the womenswear AI shooting-script guide; recommend or accept indoor commercial shoot set styles; generate a confirmed four-shot ecommerce script; create a 3:4 four-image gallery with the same model, fixed body proportions, same indoor set, exact garment preservation, and GPT Image 2.0/image_gen prompts; ask for satisfaction/corrections after the first batch; optionally generate color-variant galleries from additional color references using the same model, base set, garment construction, script structure, and optional color-matched prop/decor adjustments. Use for commercial womenswear photography, ecommerce display, AI try-on campaign images, confirmed shooting scripts, front/back/detail/creative-feature generation, color variants, and workflow templating."
+description: "Analyze user-provided model and womenswear product images through the womenswear AI shooting-script guide; recommend or accept indoor commercial shoot set styles; generate a confirmed four-shot ecommerce script; create a 3:4 four-image gallery with the same model, fixed body proportions, same indoor set, exact garment preservation, styling completion for separates, no barefoot unless requested, and GPT Image 2.0/image_gen prompts; allow product-led low-angle/perspective/unconventional poses for creative-feature shots; ask for satisfaction/corrections; optionally generate color-variant galleries. Use for commercial womenswear photography, ecommerce display, AI try-on campaign images, scripts, creative-feature generation, color variants, and workflow templating."
 ---
 
 # Commercial Fashion Shoot Generator
@@ -44,8 +44,17 @@ Carry this lock through the analysis, scene recommendation, shooting script, pro
 - Head-to-body ratio: 7.5 heads.
 - Leg-length ratio: lower-body length from navel/pubic symphysis to floor divided by height equals 0.64.
 - Preserve the reference model identity while standardizing the body to these proportions.
-- Do not use camera angles, low-angle exaggeration, pose distortion, or retouching that changes these proportions.
+- Keep neutral product views anatomically proportional. In the creative-feature image only, controlled low angle, perspective, or unconventional poses may visually dramatize the garment's selling point, but must keep anatomy believable and must not mutate the actual body, face, or garment construction.
 - Mention this lock in product risk notes and final image prompts.
+
+## Styling Completion Rules
+
+For non-full-body products such as pants, tops, jackets, coats, capes, vests, or separate skirts:
+
+- Build a complete outfit using `references/styling-completion-rules.md`.
+- Supporting garments, shoes, and accessories must be minimal and selected to flatter the target product.
+- The target product remains the visual hero; supporting styling must not hide or alter its construction.
+- Unless the user explicitly requests barefoot styling, the model must always wear suitable footwear.
 
 ## Non-Negotiable Output Rules
 
@@ -55,7 +64,8 @@ Carry this lock through the analysis, scene recommendation, shooting script, pro
 - Preserve the product garment exactly. Do not change silhouette, neckline, sleeve/strap design, length, hem, seams, ruffles, pleats, closures, fabric type, color family, or decorative details.
 - Keep the images suitable for online womenswear sales: clear garment visibility, flattering but honest fit, realistic fabric, commercial lighting, no distracting props.
 - Allow interaction with set elements only when it does not hide or distort the garment.
-- Avoid logos, watermark, visible prompt artifacts, text, extra garments, invented accessories, face masks, color blobs, and reference-image defects.
+- Never make the model barefoot unless the user explicitly asks for barefoot styling.
+- Avoid logos, watermark, visible prompt artifacts, text, unapproved or distracting extra garments, invented accessories, face masks, color blobs, and reference-image defects.
 
 ## Response Pattern Before Generation
 
@@ -63,6 +73,7 @@ When the user has not chosen a set style, respond with:
 
 - Fused guide-based multimodal analysis: clothing category/basic silhouette, material physics, core product highlight/creative selling point, and core wearing mindset.
 - Four-image ecommerce logic: what the guide's front image, back image, detail close-up image, and creative-feature image must each prove for this product.
+- Styling completion plan for separates and non-full-body products, including footwear.
 - Fixed model proportion lock: 1.68m height, 7.5-head ratio, 0.64 leg-length ratio.
 - Product risk notes: details most likely to drift during generation.
 - 2-3 indoor set style options: each with mood, props, light, why it fits the garment.
@@ -111,3 +122,4 @@ After the user confirms the first batch is fully correct and asks for color vari
 - `references/indoor-set-styles.md`: use to recommend or validate indoor shoot styles after guide-based product-attribute thinking.
 - `references/prompt-templates.md`: use to write the four final image prompts.
 - `references/color-variant-workflow.md`: use after the user confirms the first batch is fully correct and wants additional color variants.
+- `references/styling-completion-rules.md`: use whenever the product is not a complete full-body look or needs supporting garments/footwear.

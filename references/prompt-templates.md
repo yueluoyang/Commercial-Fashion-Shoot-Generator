@@ -13,7 +13,9 @@ Input images:
 - Image 2: product front reference. Use for exact front garment construction.
 - Image 3: product back/side reference. Use for exact back and side garment construction.
 
-Fixed model proportion lock: the model is 1.68m tall, with a 7.5-head head-to-body ratio and a 0.64 leg-length ratio, where lower-body length from navel/pubic symphysis to floor divided by height equals 0.64. Keep these proportions consistent across all four images. Do not elongate legs, shrink the head, stretch the torso, use extreme low-angle distortion, or otherwise alter these proportions.
+Fixed model proportion lock: the model is 1.68m tall, with a 7.5-head head-to-body ratio and a 0.64 leg-length ratio, where lower-body length from navel/pubic symphysis to floor divided by height equals 0.64. Keep these proportions consistent across the neutral product images. For the creative-feature image only, controlled low-angle perspective or unconventional posing may visually dramatize the product feature, but anatomy must remain believable and the actual body identity and garment construction must not mutate.
+
+Styling completion: if the target product is not a complete full-body look, add tasteful supporting garments and footwear according to the approved styling plan. Supporting pieces must be minimal, compatible with the target product, and never hide the target product's construction. Unless the user explicitly requests barefoot styling, the model must wear suitable shoes in every image.
 
 Scene/backdrop: [chosen indoor set style, same for all four images]. Keep the same room, props, light direction, seasonal mood, and color palette across the complete four-image gallery.
 
@@ -23,7 +25,7 @@ Approved shooting script for this deliverable: [paste the confirmed row for this
 
 Lighting/mood: [specific light], photorealistic high-fidelity commercial fashion photography, realistic skin and fabric texture, crisp product detail.
 
-Constraints: same model identity in all images; fixed 1.68m height, 7.5-head ratio, and 0.64 leg-length ratio in all images; same indoor set in all images; exact product garment preservation; approved shooting script; 3:4 vertical; no logos, no text, no watermark, no face mask, no color blob, no reference artifacts, no extra garments, no distracting accessories. Do not alter garment design or model body proportions in any way.
+Constraints: same model identity in all images; fixed 1.68m height, 7.5-head ratio, and 0.64 leg-length ratio as the underlying body; same indoor set in all images; exact product garment preservation; approved shooting script; 3:4 vertical; suitable footwear unless barefoot was explicitly requested; no logos, no text, no watermark, no face mask, no color blob, no reference artifacts, no distracting accessories. Do not alter garment design or model body proportions in any way.
 ```
 
 ## 1. Front Image
@@ -63,7 +65,7 @@ Composition/framing: 3:4 vertical close-up or macro-style crop defined by the ap
 
 Primary request: Create the 创意特性图 / creative feature image from the approved script. This is the core scene-mindset projection shot, designed to amplify the garment's strongest physical selling point through scene, camera, lighting, model posture, and controlled motion when appropriate.
 
-Composition/action: follow the approved script's product-specific creative logic. For loungewear, use relaxed morning-home gestures; for slit or large-hem garments, use a breezy forward stride or controlled turn that reveals the moving hem/slit; for wide-leg/high-waist trousers, use a controlled 15-30 degree low angle only if it does not violate the fixed body proportion lock; for other products, stage the strongest physical creative point. Keep the garment readable, keep the same indoor set, avoid generic posing, avoid extreme motion blur, and avoid perspective distortion that changes the 1.68m / 7.5-head / 0.64 leg-ratio body.
+Composition/action: follow the approved script's product-specific creative logic. For loungewear, use relaxed morning-home gestures; for slit or large-hem garments, use a breezy forward stride, controlled turn, or chair pose with crossed/propped legs to reveal the slit and feminine appeal; for wide-leg/high-waist trousers, use controlled low angle, crouching, kneeling, or asymmetric leg placement to exaggerate pant volume and fabric width; for other products, stage the strongest physical creative point. Keep the garment readable, keep the same indoor set, avoid generic posing, avoid extreme motion blur, and keep anatomy believable even when perspective is dramatic.
 ```
 
 ## Iteration Prompts
@@ -71,7 +73,7 @@ Composition/action: follow the approved script's product-specific creative logic
 If a generated image drifts, correct one issue at a time:
 
 ```text
-Revise only [specific issue]. Keep the same model, fixed 1.68m height, 7.5-head ratio, 0.64 leg-length ratio, same indoor set, same lighting, same approved shooting script, same pose category, 3:4 ratio, and all garment invariants unchanged. The garment must match the product references exactly, especially [critical details].
+Revise only [specific issue]. Keep the same model, fixed 1.68m height, 7.5-head ratio, 0.64 leg-length ratio as the underlying body, same indoor set, same lighting, same approved shooting script, same pose category, 3:4 ratio, suitable footwear unless barefoot was explicitly requested, and all garment invariants unchanged. The garment must match the product references exactly, especially [critical details].
 ```
 
 ## Color Variant Prompt Add-On
@@ -83,7 +85,7 @@ Color variant mode: create the [target color name] version of the approved four-
 
 Additional input image(s): use the color-variant product reference only to capture the new garment color, fabric color behavior, and any color-specific material appearance. Do not copy a different model, pose, background, face, body, or styling from the color reference.
 
-Keep unchanged: same model identity as the approved first batch; fixed 1.68m height, 7.5-head ratio, and 0.64 leg-length ratio; same base indoor set; same four-shot script structure; same garment silhouette, neckline, sleeves/straps, length, seams, ruffles, pleats, closures, hem, and construction details; same 3:4 vertical ratio; same commercial ecommerce polish.
+Keep unchanged: same model identity as the approved first batch; fixed 1.68m height, 7.5-head ratio, and 0.64 leg-length ratio as the underlying body; same base indoor set; same four-shot script structure; same styling-completion logic and footwear rule; same garment silhouette, neckline, sleeves/straps, length, seams, ruffles, pleats, closures, hem, and construction details; same 3:4 vertical ratio; same commercial ecommerce polish.
 
 Allowed optional scene adjustment: if the user approved color-matched set tweaks, adjust only small props or decorative accents such as flowers, vase color, textile accent, small object color, or greenery tone so the set harmonizes with the new garment color. Do not change the room architecture, main furniture, camera logic, lighting continuity, or shot purpose.
 

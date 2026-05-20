@@ -19,8 +19,8 @@ Use these body proportions throughout planning, script writing, prompt writing, 
 - Head-to-body ratio: 7.5 heads.
 - Leg-length ratio: lower-body length from navel/pubic symphysis to floor divided by height equals 0.64.
 - Preserve the reference model identity while standardizing the body to these proportions.
-- Do not rely on camera distortion to fake longer legs, a taller body, or a different head-to-body ratio.
-- When a shot uses a lower angle or motion, explicitly keep the body proportions natural and locked.
+- Do not rely on camera distortion to fake a different real body in the neutral product images.
+- In 创意特性图 only, controlled low angle, perspective, or unconventional poses may be used as visual engineering when they clearly amplify the product's physical selling point. Keep anatomy plausible and make the script state the perspective purpose.
 
 ## RACE Planning Frame
 
@@ -51,6 +51,7 @@ Before writing the script, carry forward:
 - Core product highlight or "physical selling point": ruffle, slit, drape, waist shaping, texture, sleeve volume, back detail, wide leg, etc.
 - Selected indoor set style and its props/light.
 - Fixed model proportions: 1.68m height, 7.5-head body ratio, 0.64 leg-length ratio.
+- Styling completion plan for separates or non-full-body products, including footwear. Unless the user requests otherwise, the model must not be barefoot.
 - Drift risks that must be blocked during image generation.
 
 ## Four-Shot Logic
@@ -84,10 +85,13 @@ Before writing the script, carry forward:
 
 - Treat this as the core selling image, not a generic dynamic candid.
 - Identify the most unique physical creative point in the garment and design the most persuasive scene, camera angle, lighting, and model posture to amplify it.
+- Allow controlled low-angle camera work, perspective, and unconventional poses when they better sell the product feature, including crouching, kneeling, deep seated poses, crossed or propped legs, leaning, twisting, or other editorial body language.
+- Use the user's examples as valid creative logic: for wide-leg pants, a crouched pose with an upward camera can exaggerate volume and fabric width; for a high-slit skirt or dress, a chair pose with crossed/propped legs can reveal the slit and add feminine appeal while keeping the product readable.
+- For unlisted product types, think from the garment's physical behavior first; if the best creative solution is not obvious, optionally search the web for current fashion ecommerce/editorial references, then adapt only the idea, not any brand identity or copyrighted composition.
 - Choose the creative logic based on garment physics:
   - Pajamas/loungewear/homewear: morning bedroom or relaxed indoor home scene; sleeping, turning, stretching, leaning, or soft waking gestures.
   - Slit or large hem/swing design: breezy environment; confident forward stride or controlled turn so the hem moves backward and the slit or swing becomes visible. Keep it commercial and elegant.
-  - Wide-leg pants/high-waist trousers: minimal geometric modern interior; use a controlled 15-30 degree low angle only when it does not violate the fixed body proportion lock. Emphasize fabric flow and spatial width without changing the 1.68m / 7.5-head / 0.64 leg-ratio body.
+  - Wide-leg pants/high-waist trousers: minimal geometric modern interior; use controlled low angle, crouching, kneeling, or asymmetric leg placement to exaggerate pant volume, fabric fall, and spatial width while keeping anatomy believable.
   - Other categories: infer the strongest physical creative point and design a pose, light, set interaction, or perspective that makes that point immediately desirable.
 - Keep the garment readable; avoid extreme motion blur, anatomy distortion, or body-ratio drift.
 
@@ -122,7 +126,8 @@ Please confirm this shooting script, or tell me which shot to revise. I will gen
 - Be specific enough that each row can become an image prompt without reinterpretation.
 - Tie every pose, camera angle, and light choice to a garment property or sales purpose.
 - Keep the selected indoor set consistent across all rows.
-- Keep the model's height, head-to-body ratio, and leg-length ratio consistent across all rows by writing the proportion lock into camera and model-direction decisions, not as an extra table column.
+- Keep the model's height, head-to-body ratio, and leg-length ratio consistent across all rows by writing the proportion lock into camera and model-direction decisions, not as an extra table column. For 创意特性图, controlled perspective is allowed only as a shot effect and must not mutate anatomy or garment construction.
 - Do not introduce props or actions that hide the product.
 - Never replace 创意特性图 with a generic dynamic candid; motion is allowed only when it expresses the product's core physical selling point.
+- For separates or non-full-body items, include tasteful supporting outfit pieces and footwear in the script. Never make the model barefoot unless the user explicitly requests it.
 - Keep the user's original four-image constraints unchanged.
