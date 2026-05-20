@@ -1,6 +1,17 @@
 # Color Variant Workflow
 
-Use this workflow only after the first four-image gallery has been generated and the user explicitly confirms it is fully correct.
+Use this workflow only after the first four-image gallery has been generated and the user explicitly confirms it is fully correct. This rule still applies when the user uploaded color-variant references at the beginning of the workflow.
+
+## Early Variant References
+
+When the user provides base product references and additional colorway references in the same request:
+
+- Identify which images define the first-batch/base color and which images are queued future color variants.
+- If the base color is ambiguous, ask which color should be the first four-image sample before recommending sets or writing scripts.
+- Use queued color references during indoor set planning only to choose a room palette, props, and small accent colors that can harmonize with all known colorways.
+- Do not generate any variant image before the first-batch script is confirmed, the first four-image sample is generated, and the user confirms that sample is fully correct.
+- Do not ask the user to re-upload queued color references after first-batch approval; summarize them and ask whether to proceed with those queued colors.
+- Use queued color references only for garment color and color-dependent material behavior. Preserve garment construction from the approved first-batch product references unless the user explicitly identifies a queued image as a missing construction reference.
 
 ## Satisfaction Gate
 
@@ -18,7 +29,7 @@ After full confirmation, ask whether the user wants color variants.
 
 If yes:
 
-- Ask the user to upload product reference image(s) for each additional color.
+- Ask the user to upload product reference image(s) for each additional color only when no queued variant references exist or when a queued reference is unclear.
 - If possible, request front and back references for each color. If only one color reference is available, use it only for color and material color behavior, while preserving garment construction from the approved original product references.
 - Ask whether the user wants to keep the base indoor set exactly the same or allow small color-matched prop/decor adjustments.
 - For each color, propose a concise color-variant plan before generation:

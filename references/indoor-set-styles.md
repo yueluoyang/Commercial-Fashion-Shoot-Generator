@@ -1,6 +1,6 @@
 # Indoor Set Styles
 
-Recommend 2-3 indoor set styles after the fused guide-based multimodal product analysis. Each option must be compatible with the garment's color, silhouette, fabric, physical selling point, creative feature image logic, fixed model proportions, and commercial sales purpose.
+Recommend 2-3 indoor set styles after the fused guide-based multimodal product analysis. Each option must be compatible with the garment's base color, any queued color-variant references, silhouette, fabric, physical selling point, creative feature image logic, fixed model proportions, and commercial sales purpose.
 
 ## Option Format
 
@@ -11,6 +11,7 @@ Set: <room architecture, furniture, floor/wall>
 Props: <2-4 restrained props>
 Light: <direction and quality>
 Why it fits: <specific link to garment color/fabric/silhouette>
+Colorway compatibility: <how the set works for the base color and all queued variant colors>
 Risk control: <what must stay visible>
 Proportion control: <how the set/camera/props avoid distorting 1.68m height, 7.5-head ratio, and 0.64 leg-length ratio>
 ```
@@ -63,6 +64,8 @@ Use or adapt these, keeping the choices specific to the product:
 
 - Do not recommend outdoor scenes unless the user overrides the workflow.
 - Recommend scenes only after identifying the product's core physical selling point and the 正面图 / 背面图 / 细节特写图 / 创意特性图 ecommerce logic from `shooting-script-guide.md`.
+- If the user already provided color-variant references, choose color-flexible set palettes that support all known colorways. Prefer warm neutrals, ivory, stone, light oak, muted green, soft black accents, transparent glass, or small replaceable prop colors over a strongly single-color room.
+- Do not let a queued future colorway override the first-batch/base product analysis. It only informs set compatibility and later variant planning.
 - Avoid busy sets that compete with the garment.
 - Do not let props cover the front, back, hem, waistline, or key construction details.
 - Avoid furniture height, lens height, mirrors, stairs, or extreme perspective choices that change the locked model proportions.

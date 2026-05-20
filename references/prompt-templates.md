@@ -13,6 +13,8 @@ Input images:
 - Image 2: product front reference. Use for exact front garment construction.
 - Image 3: product back/side reference. Use for exact back and side garment construction.
 
+First-batch guard: if early color-variant references were uploaded before first-batch approval, they are queued for later and are not inputs for first-batch deliverables. Use them only as prior context for choosing a color-flexible set. Do not copy their color into the first-batch garment and do not generate variant images before first-batch approval. In color-variant mode, follow the Color Variant Prompt Add-On instead.
+
 Fixed model proportion lock: the model is 1.68m tall, with a 7.5-head head-to-body ratio and a 0.64 leg-length ratio, where lower-body length from navel/pubic symphysis to floor divided by height equals 0.64. Keep these proportions consistent across the neutral product images. For the creative-feature image only, controlled low-angle perspective or unconventional posing may visually dramatize the product feature, but anatomy must remain believable and the actual body identity and garment construction must not mutate.
 
 Styling completion: if the target product is not a complete full-body look, add tasteful supporting garments and footwear according to the approved styling plan. Supporting pieces must be minimal, compatible with the target product, and never hide the target product's construction. Unless the user explicitly requests barefoot styling, the model must wear suitable shoes in every image.
@@ -83,7 +85,7 @@ Use this add-on only after the first batch is fully confirmed by the user and th
 ```text
 Color variant mode: create the [target color name] version of the approved four-image gallery.
 
-Additional input image(s): use the color-variant product reference only to capture the new garment color, fabric color behavior, and any color-specific material appearance. Do not copy a different model, pose, background, face, body, or styling from the color reference.
+Additional input image(s): use the queued or newly uploaded color-variant product reference only to capture the new garment color, fabric color behavior, and any color-specific material appearance. Do not copy a different model, pose, background, face, body, or styling from the color reference.
 
 Keep unchanged: same model identity as the approved first batch; fixed 1.68m height, 7.5-head ratio, and 0.64 leg-length ratio as the underlying body; same base indoor set; same four-shot script structure; same styling-completion logic and footwear rule; same garment silhouette, neckline, sleeves/straps, length, seams, ruffles, pleats, closures, hem, and construction details; same 3:4 vertical ratio; same commercial ecommerce polish.
 
