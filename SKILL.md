@@ -1,11 +1,11 @@
 ---
 name: commercial-fashion-shoot-generator
-description: "Analyze user-provided model and womenswear product images, infer exact garment construction, recommend or accept 2-3 indoor commercial shoot set styles, wait for the user to choose a set, generate a four-shot ecommerce shooting script for user confirmation, then create a four-image 3:4 online fashion gallery with the same model, same indoor set, exact garment preservation, and GPT Image 2.0/image_gen prompts. Use for commercial womenswear photography, ecommerce product display, AI try-on campaign images, confirmed shooting scripts, front/back/dynamic/detail fashion image generation, and requests that ask to template this workflow."
+description: "Analyze user-provided model and womenswear product images, infer exact garment construction, use the shooting-script guide to reason about product attributes and selling points before recommending or accepting 2-3 indoor commercial shoot set styles, wait for the user to choose a set, generate a four-shot ecommerce shooting script for user confirmation, then create a four-image 3:4 online fashion gallery with the same model, fixed body proportions, same indoor set, exact garment preservation, and GPT Image 2.0/image_gen prompts. Use for commercial womenswear photography, ecommerce product display, AI try-on campaign images, confirmed shooting scripts, front/back/dynamic/detail fashion image generation, and requests that ask to template this workflow."
 ---
 
 # Commercial Fashion Shoot Generator
 
-Use this skill to turn a model reference plus product images into a polished four-image commercial womenswear gallery. The workflow is intentionally gated: analyze first, propose or accept the indoor set style, wait for user selection, write a four-shot shooting script for approval, then generate final images from the approved script.
+Use this skill to turn a model reference plus product images into a polished four-image commercial womenswear gallery. The workflow is intentionally gated: analyze garment construction, use the shooting-script guide to reason about product attributes and selling points, propose or accept the indoor set style, wait for user selection, write a four-shot shooting script for approval, then generate final images from the approved script.
 
 Do not invoke `fashion-img2img-script-writer` or any local fashion img2img skill while using this skill. Use GPT Image 2.0 through the built-in `image_gen` flow unless the user explicitly asks for another image-generation path.
 
@@ -22,18 +22,30 @@ If a required image is missing, ask only for the missing image. If all required 
 
 1. Load and inspect the visible input images. If local paths are referenced but not visible in the conversation, use `view_image` first so the images are in context.
 2. Analyze the garment using `references/garment-analysis.md`.
-3. Recommend 2-3 indoor shoot styles using `references/indoor-set-styles.md`, unless the user already supplied a set style.
-4. Present the analysis and set options concisely, then ask the user to choose one option or provide their own.
-5. After the user chooses or confirms the set style, study `references/shooting-script-guide.md` and create a four-shot ecommerce shooting script for user confirmation:
+3. Study `references/shooting-script-guide.md` before scene selection. Use it to reason about the product's attributes, physical selling point, ecommerce shot logic, and how the fixed model proportions should be protected.
+4. Recommend 2-3 indoor shoot styles using `references/indoor-set-styles.md`, unless the user already supplied a set style. If the user supplied a set style, validate it against the product-attribute reasoning before accepting it.
+5. Present the garment analysis, guide-based product-attribute thinking, fixed model proportion lock, and set options concisely, then ask the user to choose one option or provide their own.
+6. After the user chooses or confirms the set style, create a four-shot ecommerce shooting script for user confirmation:
    - front product view
    - back product view
    - dynamic candid/action view
    - detail close-up
-6. Do not generate images until the user confirms the shooting script. If the user requests script changes, revise the script and ask for confirmation again.
-7. After confirmation, use one `image_gen` call per deliverable, with separate prompts based on `references/prompt-templates.md` and the approved shooting script.
-8. Keep the four prompts aligned on the same model identity, same indoor set, same lighting, same styling, same garment invariants, and approved shot intent.
-9. Inspect results. If a result clearly breaks garment construction, identity, ratio, set consistency, or the approved script, iterate with one targeted correction for that image.
-10. Report the final output paths and summarize the chosen set style, approved shooting script, and any caveats.
+7. Do not generate images until the user confirms the shooting script. If the user requests script changes, revise the script and ask for confirmation again.
+8. After confirmation, use one `image_gen` call per deliverable, with separate prompts based on `references/prompt-templates.md` and the approved shooting script.
+9. Keep the four prompts aligned on the same model identity, fixed model body proportions, same indoor set, same lighting, same styling, same garment invariants, and approved shot intent.
+10. Inspect results. If a result clearly breaks garment construction, model identity, fixed body proportions, ratio, set consistency, or the approved script, iterate with one targeted correction for that image.
+11. Report the final output paths and summarize the chosen set style, approved shooting script, and any caveats.
+
+## Fixed Model Body Proportions
+
+Carry this lock through the analysis, scene recommendation, shooting script, prompt writing, image generation, and iteration stages:
+
+- Height: 1.68m.
+- Head-to-body ratio: 7.5 heads.
+- Leg-length ratio: lower-body length from navel/pubic symphysis to floor divided by height equals 0.64.
+- Preserve the reference model identity while standardizing the body to these proportions.
+- Do not use camera angles, low-angle exaggeration, pose distortion, or retouching that changes these proportions.
+- Mention this lock in product risk notes and final image prompts.
 
 ## Non-Negotiable Output Rules
 
@@ -50,6 +62,8 @@ If a required image is missing, ask only for the missing image. If all required 
 When the user has not chosen a set style, respond with:
 
 - Garment analysis: concise but specific.
+- Guide-based product-attribute thinking: core selling point, shot logic, and physical-to-visual translation.
+- Fixed model proportion lock: 1.68m height, 7.5-head ratio, 0.64 leg-length ratio.
 - Product risk notes: details most likely to drift during generation.
 - 2-3 indoor set style options: each with mood, props, light, why it fits the garment.
 - A direct request for the user to choose one option or provide a custom style.
@@ -61,9 +75,10 @@ Do not write the final shooting script in the same turn as initial set recommend
 After the user chooses or confirms the set style, respond with a shooting script instead of generating images. Use the guide in `references/shooting-script-guide.md` and include:
 
 - A brief garment attribute recap.
+- Fixed model proportion lock.
 - Product risk notes that the image prompts must guard.
 - A Markdown table with four rows: front product view, back product view, dynamic candid/action view, detail close-up.
-- Table columns for composition/camera, scene and lighting, model direction, garment detail emphasis, and commercial purpose.
+- Table columns for composition/camera, scene and lighting, model direction, garment detail emphasis, model proportion control, and commercial purpose.
 - A direct request for user confirmation before image generation.
 
 Do not call `image_gen` until the user explicitly confirms the script or says to proceed.
@@ -79,6 +94,6 @@ After generating, keep the final answer short:
 ## References
 
 - `references/garment-analysis.md`: use to extract exact product construction and invariants.
-- `references/indoor-set-styles.md`: use to recommend or validate indoor shoot styles.
-- `references/shooting-script-guide.md`: use after set selection to create the four-shot script for user confirmation.
+- `references/shooting-script-guide.md`: use before set recommendation for product-attribute thinking, then after set selection to create the four-shot script for user confirmation.
+- `references/indoor-set-styles.md`: use to recommend or validate indoor shoot styles after guide-based product-attribute thinking.
 - `references/prompt-templates.md`: use to write the four final image prompts.

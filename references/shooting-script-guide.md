@@ -1,6 +1,6 @@
 # Shooting Script Guide
 
-Use this guide after the user chooses the indoor set style and before any image generation. It is distilled from the user's womenswear AI shooting-script DOCX guide and adapted to this skill's fixed deliverables: front, back, dynamic candid/action, and detail close-up.
+Use this guide twice: first before recommending or accepting an indoor set style, to reason about the product's attributes and selling points; then after the user chooses the set style, to create the four-shot script before any image generation. It is distilled from the user's womenswear AI shooting-script DOCX guide and adapted to this skill's fixed deliverables: front, back, dynamic candid/action, and detail close-up.
 
 ## Core Principle
 
@@ -11,14 +11,35 @@ Treat the four images as a conversion-oriented ecommerce sequence, not four isol
 - Dynamic candid/action view: the creative feature shot; amplify the strongest physical selling point through motion, pose, camera angle, or set interaction.
 - Detail close-up: reduce the "cannot touch fabric online" problem through texture, stitching, drape, edge, and construction fidelity.
 
+## Fixed Model Proportion Lock
+
+Use these body proportions throughout planning, script writing, prompt writing, and image critique:
+
+- Height: 1.68m.
+- Head-to-body ratio: 7.5 heads.
+- Leg-length ratio: lower-body length from navel/pubic symphysis to floor divided by height equals 0.64.
+- Preserve the reference model identity while standardizing the body to these proportions.
+- Do not rely on camera distortion to fake longer legs, a taller body, or a different head-to-body ratio.
+- When a shot uses a lower angle or motion, explicitly keep the body proportions natural and locked.
+
 ## RACE Planning Frame
 
 Use this internal frame when writing the script:
 
 - Role: act as a senior womenswear ecommerce visual director and fashion photographer.
 - Action: convert the garment analysis into a four-shot commercial shooting plan.
-- Context: honor the selected indoor set, online sales purpose, product invariants, and same-model/same-location constraints.
+- Context: honor the selected indoor set, online sales purpose, product invariants, fixed model proportions, and same-model/same-location constraints.
 - Example logic: map fabric, cut, silhouette, and key details to camera, lighting, pose, and commercial purpose.
+
+## Product-Attribute Thinking Before Set Recommendation
+
+Before proposing or accepting a set style, produce internal or user-facing reasoning that maps:
+
+- Garment category, silhouette, fabric, color, construction, and detail hierarchy.
+- Physical selling point: the one detail or behavior the image sequence must make desirable.
+- Ecommerce shot logic: what the front, back, dynamic, and detail images must each prove.
+- Scene compatibility: which indoor environments best support the product's mood without hiding key construction.
+- Model proportion protection: whether the set, lens height, furniture, or pose could distort the locked 1.68m / 7.5-head / 0.64 leg-ratio body.
 
 ## Script Inputs
 
@@ -27,6 +48,7 @@ Before writing the script, carry forward:
 - Garment category, silhouette, length, color, fabric, and construction invariants.
 - Core product highlight or "physical selling point": ruffle, slit, drape, waist shaping, texture, sleeve volume, back detail, wide leg, etc.
 - Selected indoor set style and its props/light.
+- Fixed model proportions: 1.68m height, 7.5-head body ratio, 0.64 leg-length ratio.
 - Drift risks that must be blocked during image generation.
 
 ## Four-Shot Logic
@@ -78,13 +100,16 @@ After set selection, output a concise script in this structure and ask for confi
 ### Generation Risk Notes
 <details most likely to drift and must be locked>
 
+### Fixed Model Proportion Lock
+Height 1.68m; head-to-body ratio 7.5 heads; leg-length ratio 0.64. Preserve the same model identity while keeping these proportions consistent across all four images.
+
 ### Four-Shot Shooting Script
-| Deliverable | Composition / Camera | Scene & Lighting | Model Direction | Garment Detail Emphasis | Commercial Purpose |
-|---|---|---|---|---|---|
-| Front product view | ... | ... | ... | ... | ... |
-| Back product view | ... | ... | ... | ... | ... |
-| Dynamic candid/action view | ... | ... | ... | ... | ... |
-| Detail close-up | ... | ... | ... | ... | ... |
+| Deliverable | Composition / Camera | Scene & Lighting | Model Direction | Garment Detail Emphasis | Model Proportion Control | Commercial Purpose |
+|---|---|---|---|---|---|---|
+| Front product view | ... | ... | ... | ... | ... | ... |
+| Back product view | ... | ... | ... | ... | ... | ... |
+| Dynamic candid/action view | ... | ... | ... | ... | ... | ... |
+| Detail close-up | ... | ... | ... | ... | ... | ... |
 
 Please confirm this shooting script, or tell me which shot to revise. I will generate images only after confirmation.
 ```
@@ -94,5 +119,6 @@ Please confirm this shooting script, or tell me which shot to revise. I will gen
 - Be specific enough that each row can become an image prompt without reinterpretation.
 - Tie every pose, camera angle, and light choice to a garment property or sales purpose.
 - Keep the selected indoor set consistent across all rows.
+- Keep the model's height, head-to-body ratio, and leg-length ratio consistent across all rows.
 - Do not introduce props or actions that hide the product.
 - Keep the user's original four deliverables and constraints unchanged.

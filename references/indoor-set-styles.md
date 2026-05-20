@@ -1,6 +1,6 @@
 # Indoor Set Styles
 
-Recommend 2-3 indoor set styles after garment analysis. Each option must be compatible with the garment's color, silhouette, fabric, and commercial sales purpose.
+Recommend 2-3 indoor set styles after garment analysis and guide-based product-attribute thinking. Each option must be compatible with the garment's color, silhouette, fabric, physical selling point, fixed model proportions, and commercial sales purpose.
 
 ## Option Format
 
@@ -12,6 +12,7 @@ Props: <2-4 restrained props>
 Light: <direction and quality>
 Why it fits: <specific link to garment color/fabric/silhouette>
 Risk control: <what must stay visible>
+Proportion control: <how the set/camera/props avoid distorting 1.68m height, 7.5-head ratio, and 0.64 leg-length ratio>
 ```
 
 ## Style Library
@@ -61,8 +62,10 @@ Use or adapt these, keeping the choices specific to the product:
 ## Recommendation Rules
 
 - Do not recommend outdoor scenes unless the user overrides the workflow.
+- Recommend scenes only after identifying the product's core physical selling point and four-shot ecommerce logic from `shooting-script-guide.md`.
 - Avoid busy sets that compete with the garment.
 - Do not let props cover the front, back, hem, waistline, or key construction details.
+- Avoid furniture height, lens height, mirrors, stairs, or extreme perspective choices that change the locked model proportions.
 - For pale garments, use slightly warmer or darker neutral backgrounds so the product edge remains readable.
 - For saturated garments, use restrained cream, stone, wood, or muted green surroundings.
 - For romantic garments, prefer curtains, flowers, and soft furniture.
