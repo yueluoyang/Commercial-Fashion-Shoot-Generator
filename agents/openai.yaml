@@ -1,4 +1,4 @@
 interface:
   display_name: "Commercial Fashion Shoot Generator"
-  short_description: "Analyze womenswear products and generate commercial galleries."
-  default_prompt: "Use $commercial-fashion-shoot-generator to analyze my model and product images, recommend indoor set styles, and generate a four-image commercial fashion gallery."
+  short_description: "Plan confirmed womenswear scripts and commercial galleries."
+  default_prompt: "Use $commercial-fashion-shoot-generator to analyze my model and product images, recommend indoor set styles, draft a four-shot script for confirmation, and generate a commercial fashion gallery."

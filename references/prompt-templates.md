@@ -1,6 +1,6 @@
 # Prompt Templates
 
-Use these templates after the user chooses the indoor set style. Replace bracketed text. Keep all four prompts consistent.
+Use these templates only after the user chooses the indoor set style and confirms the four-shot shooting script. Replace bracketed text. Keep all four prompts consistent.
 
 ## Shared Prompt Block
 
@@ -17,9 +17,11 @@ Scene/backdrop: [chosen indoor set style, same for all four images]. Keep the sa
 
 [Garment invariant block from garment-analysis.md]
 
+Approved shooting script for this deliverable: [paste the confirmed row for this image: composition/camera, scene and lighting, model direction, garment detail emphasis, commercial purpose]. Follow this approved script exactly unless it conflicts with garment preservation; if conflict exists, garment preservation wins.
+
 Lighting/mood: [specific light], photorealistic high-fidelity commercial fashion photography, realistic skin and fabric texture, crisp product detail.
 
-Constraints: same model identity in all images; same indoor set in all images; exact product garment preservation; 3:4 vertical; no logos, no text, no watermark, no face mask, no color blob, no reference artifacts, no extra garments, no distracting accessories. Do not alter garment design in any way.
+Constraints: same model identity in all images; same indoor set in all images; exact product garment preservation; approved shooting script; 3:4 vertical; no logos, no text, no watermark, no face mask, no color blob, no reference artifacts, no extra garments, no distracting accessories. Do not alter garment design in any way.
 ```
 
 ## 1. Front Product View
@@ -47,7 +49,7 @@ Composition/framing: straight camera at fashion catalog height, full back visibl
 ```text
 [Shared Prompt Block]
 
-Primary request: Create a dynamic full-body commercial fashion photo of the same model wearing the exact product garment, interacting naturally with the chosen indoor set.
+Primary request: Create a dynamic full-body commercial fashion photo of the same model wearing the exact product garment, interacting naturally with the chosen indoor set. Treat this as the approved creative feature shot: it must project the product's strongest wearing scenario or physical selling point.
 
 Composition/action: three-quarter front or side-front view, full body visible. The model may walk, turn softly, touch a curtain, sit lightly on a stool edge, or interact with a flower/vase/furniture piece only if the garment construction remains readable. Add subtle movement in hair, fabric, or curtain; avoid extreme motion blur.
 ```
@@ -67,5 +69,5 @@ Composition/framing: 3:4 vertical crop from [appropriate upper crop] to [appropr
 If a generated image drifts, correct one issue at a time:
 
 ```text
-Revise only [specific issue]. Keep the same model, same indoor set, same lighting, same pose category, 3:4 ratio, and all garment invariants unchanged. The garment must match the product references exactly, especially [critical details].
+Revise only [specific issue]. Keep the same model, same indoor set, same lighting, same approved shooting script, same pose category, 3:4 ratio, and all garment invariants unchanged. The garment must match the product references exactly, especially [critical details].
 ```

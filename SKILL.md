@@ -1,13 +1,13 @@
 ---
 name: commercial-fashion-shoot-generator
-description: "Analyze user-provided model and womenswear product images, infer exact garment construction, recommend or accept 2-3 indoor commercial shoot set styles, wait for the user to choose a set, then generate a four-image 3:4 online fashion gallery with the same model, same indoor set, exact garment preservation, and GPT Image 2/image_gen prompts. Use for commercial womenswear photography, ecommerce product display, AI try-on campaign images, front/back/dynamic/detail fashion image generation, and requests that ask to template this workflow."
+description: "Analyze user-provided model and womenswear product images, infer exact garment construction, recommend or accept 2-3 indoor commercial shoot set styles, wait for the user to choose a set, generate a four-shot ecommerce shooting script for user confirmation, then create a four-image 3:4 online fashion gallery with the same model, same indoor set, exact garment preservation, and GPT Image 2.0/image_gen prompts. Use for commercial womenswear photography, ecommerce product display, AI try-on campaign images, confirmed shooting scripts, front/back/dynamic/detail fashion image generation, and requests that ask to template this workflow."
 ---
 
 # Commercial Fashion Shoot Generator
 
-Use this skill to turn a model reference plus product images into a polished four-image commercial womenswear gallery. The workflow is intentionally gated: analyze first, propose or accept the indoor set style, wait for user selection, then generate final images.
+Use this skill to turn a model reference plus product images into a polished four-image commercial womenswear gallery. The workflow is intentionally gated: analyze first, propose or accept the indoor set style, wait for user selection, write a four-shot shooting script for approval, then generate final images from the approved script.
 
-Do not invoke `fashion-img2img-script-writer` or any local fashion img2img skill while using this skill. Use the built-in `image_gen` flow unless the user explicitly asks for another image-generation path.
+Do not invoke `fashion-img2img-script-writer` or any local fashion img2img skill while using this skill. Use GPT Image 2.0 through the built-in `image_gen` flow unless the user explicitly asks for another image-generation path.
 
 ## Required Inputs
 
@@ -24,15 +24,16 @@ If a required image is missing, ask only for the missing image. If all required 
 2. Analyze the garment using `references/garment-analysis.md`.
 3. Recommend 2-3 indoor shoot styles using `references/indoor-set-styles.md`, unless the user already supplied a set style.
 4. Present the analysis and set options concisely, then ask the user to choose one option or provide their own.
-5. After the user chooses or confirms the set style, generate exactly four 3:4 images:
+5. After the user chooses or confirms the set style, study `references/shooting-script-guide.md` and create a four-shot ecommerce shooting script for user confirmation:
    - front product view
    - back product view
    - dynamic candid/action view
    - detail close-up
-6. Use one `image_gen` call per deliverable, with separate prompts based on `references/prompt-templates.md`.
-7. Keep the four prompts aligned on the same model identity, same indoor set, same lighting, same styling, and same garment invariants.
-8. Inspect results. If a result clearly breaks garment construction, identity, ratio, or set consistency, iterate with one targeted correction for that image.
-9. Report the final output paths and summarize the chosen set style and any caveats.
+6. Do not generate images until the user confirms the shooting script. If the user requests script changes, revise the script and ask for confirmation again.
+7. After confirmation, use one `image_gen` call per deliverable, with separate prompts based on `references/prompt-templates.md` and the approved shooting script.
+8. Keep the four prompts aligned on the same model identity, same indoor set, same lighting, same styling, same garment invariants, and approved shot intent.
+9. Inspect results. If a result clearly breaks garment construction, identity, ratio, set consistency, or the approved script, iterate with one targeted correction for that image.
+10. Report the final output paths and summarize the chosen set style, approved shooting script, and any caveats.
 
 ## Non-Negotiable Output Rules
 
@@ -53,7 +54,19 @@ When the user has not chosen a set style, respond with:
 - 2-3 indoor set style options: each with mood, props, light, why it fits the garment.
 - A direct request for the user to choose one option or provide a custom style.
 
-Do not produce the final four images in the same turn as initial set recommendations unless the user already selected a set style.
+Do not write the final shooting script in the same turn as initial set recommendations unless the user already selected a set style.
+
+## Response Pattern After Set Selection
+
+After the user chooses or confirms the set style, respond with a shooting script instead of generating images. Use the guide in `references/shooting-script-guide.md` and include:
+
+- A brief garment attribute recap.
+- Product risk notes that the image prompts must guard.
+- A Markdown table with four rows: front product view, back product view, dynamic candid/action view, detail close-up.
+- Table columns for composition/camera, scene and lighting, model direction, garment detail emphasis, and commercial purpose.
+- A direct request for user confirmation before image generation.
+
+Do not call `image_gen` until the user explicitly confirms the script or says to proceed.
 
 ## Response Pattern After Generation
 
@@ -61,10 +74,11 @@ After generating, keep the final answer short:
 
 - Name the four deliverables.
 - Provide final saved paths if available.
-- State that the workflow used built-in image generation/GPT Image 2 style prompting and did not use the local fashion img2img skill.
+- State that the workflow used the approved shooting script, GPT Image 2.0/built-in image generation prompting, and did not use the local fashion img2img skill.
 
 ## References
 
 - `references/garment-analysis.md`: use to extract exact product construction and invariants.
 - `references/indoor-set-styles.md`: use to recommend or validate indoor shoot styles.
+- `references/shooting-script-guide.md`: use after set selection to create the four-shot script for user confirmation.
 - `references/prompt-templates.md`: use to write the four final image prompts.
