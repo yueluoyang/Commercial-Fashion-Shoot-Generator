@@ -1,11 +1,11 @@
 ---
 name: commercial-fashion-shoot-generator
-description: "Analyze user-provided model and womenswear product images through the womenswear AI shooting-script guide, merging garment style analysis with product attributes, physical selling points, and four-image ecommerce logic; recommend or accept 2-3 indoor commercial shoot set styles; wait for the user to choose a set; generate a confirmed four-shot ecommerce script using the guide's exact front, back, detail close-up, and creative-feature image labels; then create a four-image 3:4 online fashion gallery with the same model, fixed body proportions, same indoor set, exact garment preservation, and GPT Image 2.0/image_gen prompts. Use for commercial womenswear photography, ecommerce product display, AI try-on campaign images, confirmed shooting scripts, front/back/detail/creative-feature fashion image generation, and requests that ask to template this workflow."
+description: "Analyze user-provided model and womenswear product images through the womenswear AI shooting-script guide; recommend or accept indoor commercial shoot set styles; generate a confirmed four-shot ecommerce script; create a 3:4 four-image gallery with the same model, fixed body proportions, same indoor set, exact garment preservation, and GPT Image 2.0/image_gen prompts; ask for satisfaction/corrections after the first batch; optionally generate color-variant galleries from additional color references using the same model, base set, garment construction, script structure, and optional color-matched prop/decor adjustments. Use for commercial womenswear photography, ecommerce display, AI try-on campaign images, confirmed shooting scripts, front/back/detail/creative-feature generation, color variants, and workflow templating."
 ---
 
 # Commercial Fashion Shoot Generator
 
-Use this skill to turn a model reference plus product images into a polished four-image commercial womenswear gallery. The workflow is intentionally gated: use the shooting-script guide as the primary analysis frame, propose or accept the indoor set style, wait for user selection, write a four-shot shooting script for approval, then generate final images from the approved script.
+Use this skill to turn a model reference plus product images into a polished four-image commercial womenswear gallery. The workflow is intentionally gated: use the shooting-script guide as the primary analysis frame, propose or accept the indoor set style, wait for user selection, write a four-shot shooting script for approval, generate the first gallery from the approved script, ask for satisfaction/corrections, then optionally generate color variants after the user confirms the first batch is fully correct.
 
 Do not invoke `fashion-img2img-script-writer` or any local fashion img2img skill while using this skill. Use GPT Image 2.0 through the built-in `image_gen` flow unless the user explicitly asks for another image-generation path.
 
@@ -29,7 +29,12 @@ If a required image is missing, ask only for the missing image. If all required 
 7. After confirmation, use one `image_gen` call per deliverable, with separate prompts based on `references/prompt-templates.md` and the approved shooting script.
 8. Keep the four prompts aligned on the same model identity, fixed model body proportions, same indoor set, same lighting, same styling, same garment invariants, and approved shot intent.
 9. Inspect results. If a result clearly breaks garment construction, model identity, fixed body proportions, ratio, set consistency, or the approved script, iterate with one targeted correction for that image.
-10. Report the final output paths and summarize the chosen set style, approved shooting script, and any caveats.
+10. After delivering the first batch, ask whether the user is satisfied or wants any edits/corrections. Do not move to color variants until the user confirms the first batch is fully correct.
+11. If the user requests corrections, revise only the specified image(s) and issue(s), then ask for satisfaction again.
+12. After the user confirms the first batch is fully correct, ask whether they want color variants.
+13. If the user wants color variants, follow `references/color-variant-workflow.md`: ask for additional color reference images, keep the same model, same fixed body proportions, same base indoor set, exact garment construction, same four-shot script structure, GPT Image 2.0/image_gen path, and 3:4 ratio; optionally adjust only small props or decor to fit each color.
+14. For each confirmed color variant, generate four images using the same approved script structure and the color-variant prompt rules in `references/prompt-templates.md`.
+15. Report final paths grouped by original batch and color variant.
 
 ## Fixed Model Body Proportions
 
@@ -80,11 +85,24 @@ Do not call `image_gen` until the user explicitly confirms the script or says to
 
 ## Response Pattern After Generation
 
-After generating, keep the final answer short:
+After generating the first batch, keep the response focused but do not end the workflow:
 
 - Name the four deliverables.
 - Provide final saved paths if available.
 - State that the workflow used the approved shooting script, GPT Image 2.0/built-in image generation prompting, and did not use the local fashion img2img skill.
+- Ask whether the user is satisfied with the generated images or needs any corrections.
+
+Do not ask about color variants until the user confirms the first batch is fully correct.
+
+## Response Pattern For Color Variants
+
+After the user confirms the first batch is fully correct and asks for color variants:
+
+- Ask the user to upload product reference images for each additional color.
+- For each color, identify the target color and preserve all non-color garment construction from the approved original workflow.
+- Ask whether to keep the base set exactly the same or allow small color-matched prop/decor adjustments.
+- If adjustments are allowed, propose small prop/decor changes only; do not change architecture, room identity, model identity, body proportions, garment style, or four-shot script structure.
+- Generate four 3:4 images per confirmed color using GPT Image 2.0/image_gen and the same approved script structure.
 
 ## References
 
@@ -92,3 +110,4 @@ After generating, keep the final answer short:
 - `references/shooting-script-guide.md`: primary analysis and script reference; use it from the first product-analysis step and again after set selection to create the four-shot script for user confirmation.
 - `references/indoor-set-styles.md`: use to recommend or validate indoor shoot styles after guide-based product-attribute thinking.
 - `references/prompt-templates.md`: use to write the four final image prompts.
+- `references/color-variant-workflow.md`: use after the user confirms the first batch is fully correct and wants additional color variants.

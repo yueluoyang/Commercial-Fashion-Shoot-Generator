@@ -73,3 +73,19 @@ If a generated image drifts, correct one issue at a time:
 ```text
 Revise only [specific issue]. Keep the same model, fixed 1.68m height, 7.5-head ratio, 0.64 leg-length ratio, same indoor set, same lighting, same approved shooting script, same pose category, 3:4 ratio, and all garment invariants unchanged. The garment must match the product references exactly, especially [critical details].
 ```
+
+## Color Variant Prompt Add-On
+
+Use this add-on only after the first batch is fully confirmed by the user and the user provides additional color reference image(s).
+
+```text
+Color variant mode: create the [target color name] version of the approved four-image gallery.
+
+Additional input image(s): use the color-variant product reference only to capture the new garment color, fabric color behavior, and any color-specific material appearance. Do not copy a different model, pose, background, face, body, or styling from the color reference.
+
+Keep unchanged: same model identity as the approved first batch; fixed 1.68m height, 7.5-head ratio, and 0.64 leg-length ratio; same base indoor set; same four-shot script structure; same garment silhouette, neckline, sleeves/straps, length, seams, ruffles, pleats, closures, hem, and construction details; same 3:4 vertical ratio; same commercial ecommerce polish.
+
+Allowed optional scene adjustment: if the user approved color-matched set tweaks, adjust only small props or decorative accents such as flowers, vase color, textile accent, small object color, or greenery tone so the set harmonizes with the new garment color. Do not change the room architecture, main furniture, camera logic, lighting continuity, or shot purpose.
+
+Color accuracy: match the target color reference faithfully while preserving realistic fabric texture and lighting. Avoid hue drift, invented patterns, extra trims, extra accessories, or changing the garment design.
+```
