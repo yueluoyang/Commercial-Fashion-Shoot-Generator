@@ -1,15 +1,15 @@
 # Shooting Script Guide
 
-Use this guide twice: first before recommending or accepting an indoor set style, to reason about the product's attributes and selling points; then after the user chooses the set style, to create the four-shot script before any image generation. It is distilled from the user's womenswear AI shooting-script DOCX guide and adapted to this skill's fixed deliverables: front, back, dynamic candid/action, and detail close-up.
+Use this guide from the beginning of the workflow. It merges garment style analysis with product attributes, physical selling points, and four-image ecommerce logic. Use it before recommending or accepting an indoor set style, then use it again after the user chooses the set style to create the four-shot script before image generation. It is distilled from the user's womenswear AI shooting-script DOCX guide and adapted to this skill's required deliverables: 正面图, 背面图, 细节特写图, and 创意特性图.
 
 ## Core Principle
 
 Treat the four images as a conversion-oriented ecommerce sequence, not four isolated photos. Each shot must translate garment physics into visual selling value:
 
-- Front product view: first-look trust, true color, full silhouette, exact front construction.
-- Back product view: remove uncertainty about back cut, waist shaping, closures, seams, and hem.
-- Dynamic candid/action view: the creative feature shot; amplify the strongest physical selling point through motion, pose, camera angle, or set interaction.
-- Detail close-up: reduce the "cannot touch fabric online" problem through texture, stitching, drape, edge, and construction fidelity.
+- 正面图: first-look trust, true color, full silhouette, exact front construction.
+- 背面图: remove uncertainty about back cut, waist shaping, closures, seams, and hem.
+- 细节特写图: reduce the "cannot touch fabric online" problem through texture, stitching, drape, edge, and construction fidelity.
+- 创意特性图: the most important feature shot; project a wearing scenario and amplify the strongest physical selling point through scene, pose, camera, light, and motion when appropriate.
 
 ## Fixed Model Proportion Lock
 
@@ -24,20 +24,22 @@ Use these body proportions throughout planning, script writing, prompt writing, 
 
 ## RACE Planning Frame
 
-Use this internal frame when writing the script:
+Use this frame for the first product analysis and for the later confirmed script:
 
-- Role: act as a senior womenswear ecommerce visual director and fashion photographer.
-- Action: convert the garment analysis into a four-shot commercial shooting plan.
-- Context: honor the selected indoor set, online sales purpose, product invariants, fixed model proportions, and same-model/same-location constraints.
-- Example logic: map fabric, cut, silhouette, and key details to camera, lighting, pose, and commercial purpose.
+- Role: act as a multimodal visual planning expert with more than 10 years of womenswear ecommerce visual-director and senior fashion-photographer experience. Be highly sensitive to fabric, cut, silhouette, construction, camera, lighting, model body language, and perspective.
+- Action: inspect the uploaded womenswear product images, ignore hangers/background boards/flat-lay props/non-garment artifacts, produce a multidimensional fashion-attribute analysis, then tailor a high-conversion four-image ecommerce shooting plan that maximizes the product's physical and cutting features.
+- Context: follow the four core ecommerce images and their physical-to-visual translation rules, while honoring the selected indoor set, online sales purpose, product invariants, fixed model proportions, and same-model/same-location constraints.
+- Example logic: map fabric, cut, silhouette, and key details to camera, lighting, pose, scene psychology, and commercial purpose.
 
-## Product-Attribute Thinking Before Set Recommendation
+## Fused Product Analysis Before Set Recommendation
 
-Before proposing or accepting a set style, produce internal or user-facing reasoning that maps:
+Do not run a separate generic garment-analysis stage before this guide. Before proposing or accepting a set style, analyze the garment directly through this guide and produce a concise report covering:
 
-- Garment category, silhouette, fabric, color, construction, and detail hierarchy.
-- Physical selling point: the one detail or behavior the image sequence must make desirable.
-- Ecommerce shot logic: what the front, back, dynamic, and detail images must each prove.
+- Clothing category and basic silhouette.
+- Material/fabric physical expression: drape, structure, surface texture, sheen, transparency, stretch, weight.
+- Core product highlight or creative selling point: slit, ruffle, sleeve volume, waist shaping, wide leg, texture, back detail, etc.
+- Core wearing mindset: commuting, elegance, relaxed home, vacation, formal event, spring freshness, quiet luxury, etc.
+- Ecommerce shot logic: what 正面图, 背面图, 细节特写图, and 创意特性图 must each prove.
 - Scene compatibility: which indoor environments best support the product's mood without hiding key construction.
 - Model proportion protection: whether the set, lens height, furniture, or pose could distort the locked 1.68m / 7.5-head / 0.64 leg-ratio body.
 
@@ -53,33 +55,22 @@ Before writing the script, carry forward:
 
 ## Four-Shot Logic
 
-### 1. Front Product View
+### 1. 正面图（正面视觉锤）
 
-- Use eye-level, catalog-height framing.
-- Prefer full-body or mid-long shot so neckline, waist, hem, and whole silhouette are readable.
-- Keep the model's posture clean and centered.
-- Use soft, low-contrast commercial light to preserve true color and fabric.
+- Use standard eye-level medium or mid-long framing.
+- Use a clean centered composition so shoulder line, chest width, waist, hem, color, and overall silhouette are readable.
+- Keep the model's posture direct, natural, and symmetrical.
+- Use a minimal background and soft focus/softbox-style light with no harsh shadows.
 - Avoid hands, props, hair, or furniture covering key front details.
 
-### 2. Back Product View
+### 2. 背面图（版型细节展示）
 
 - Keep background and lighting visually continuous with the front view.
-- Use back or slight side-back angle; optional gentle over-shoulder head turn only when it does not hide the back design.
+- Use back or side-back angle; optional gentle over-shoulder head turn only when it does not hide the back design.
 - Show shoulder/strap/sleeve construction, back waist, darts or seams, closure area, skirt/pants back, and hem.
 - Avoid inventing back bows, cutouts, exposed zippers, or extra closures.
 
-### 3. Dynamic Candid/Creative Feature View
-
-- Treat this as the shot that projects the wearing scenario and amplifies the garment's strongest selling point.
-- Choose the action based on garment physics:
-  - Slit or flowing hem: mid-step walk, gentle turn, skirt edge moving naturally.
-  - Ruffle, drape, or flounce: soft hand movement or body turn that reveals layered edge and flow.
-  - Wide-leg pants or long vertical lines: slightly lower camera angle and asymmetrical stride to enhance leg length and drape.
-  - Knit, soft loungewear, or pajamas: relaxed indoor pose, stretch, seated/leaning gesture, morning light.
-  - Structured tailoring: confident stance, architectural set interaction, clean lines.
-- Keep the garment readable; avoid extreme motion blur or poses that distort construction.
-
-### 4. Detail Close-Up
+### 3. 细节特写图（面料肌理雕刻）
 
 - Use close-up or macro-style framing with shallow depth of field.
 - Choose the detail based on product value: neckline, ruffle edge, button, zipper, waist seam, sleeve cuff, pocket, stitching, fabric texture, hem, drape, or back closure.
@@ -89,27 +80,39 @@ Before writing the script, carry forward:
   - Sheer/chiffon/lace: backlight or soft side light to show translucency and edge detail.
 - Hands may indicate scale or touch fabric lightly, but must not cover the detail being sold.
 
+### 4. 创意特性图（场景心智投射）
+
+- Treat this as the core selling image, not a generic dynamic candid.
+- Identify the most unique physical creative point in the garment and design the most persuasive scene, camera angle, lighting, and model posture to amplify it.
+- Choose the creative logic based on garment physics:
+  - Pajamas/loungewear/homewear: morning bedroom or relaxed indoor home scene; sleeping, turning, stretching, leaning, or soft waking gestures.
+  - Slit or large hem/swing design: breezy environment; confident forward stride or controlled turn so the hem moves backward and the slit or swing becomes visible. Keep it commercial and elegant.
+  - Wide-leg pants/high-waist trousers: minimal geometric modern interior; use a controlled 15-30 degree low angle only when it does not violate the fixed body proportion lock. Emphasize fabric flow and spatial width without changing the 1.68m / 7.5-head / 0.64 leg-ratio body.
+  - Other categories: infer the strongest physical creative point and design a pose, light, set interaction, or perspective that makes that point immediately desirable.
+- Keep the garment readable; avoid extreme motion blur, anatomy distortion, or body-ratio drift.
+
 ## Required Script Output
 
 After set selection, output a concise script in this structure and ask for confirmation:
 
 ```markdown
-### Garment Recap
-<category, silhouette, color, fabric, core construction, core selling point>
+一、服装多模态属性解析报告
+- 服装品类与基本版型: <category and silhouette>
+- 材质面料物理表现: <fabric behavior, drape, structure, texture, sheen>
+- 产品核心亮点/创意卖点: <one or more physical selling points>
+- 核心穿搭心智定位: <wearing mindset / consumer projection>
 
-### Generation Risk Notes
-<details most likely to drift and must be locked>
+固定模特比例锁: 身高1.68m；头身比7.5；腿长比例0.64。保持同一模特身份，并让四张图中的身体比例一致。
 
-### Fixed Model Proportion Lock
-Height 1.68m; head-to-body ratio 7.5 heads; leg-length ratio 0.64. Preserve the same model identity while keeping these proportions consistent across all four images.
+生成风险备注: <details most likely to drift and must be locked>
 
-### Four-Shot Shooting Script
-| Deliverable | Composition / Camera | Scene & Lighting | Model Direction | Garment Detail Emphasis | Model Proportion Control | Commercial Purpose |
-|---|---|---|---|---|---|---|
-| Front product view | ... | ... | ... | ... | ... | ... |
-| Back product view | ... | ... | ... | ... | ... | ... |
-| Dynamic candid/action view | ... | ... | ... | ... | ... | ... |
-| Detail close-up | ... | ... | ... | ... | ... | ... |
+二、4张电商主图拍摄分镜脚本
+| 主图序号 | 构图、景别与机位角度 | 空间场景与环境布光 | 模特调度（肢体动作与细节展现） | 视觉呈现目的 |
+|---|---|---|---|---|
+| 正面图 | ... | ... | ... | ... |
+| 背面图 | ... | ... | ... | ... |
+| 细节特写图 | ... | ... | ... | ... |
+| 创意特性图 | ... | ... | ... | ... |
 
 Please confirm this shooting script, or tell me which shot to revise. I will generate images only after confirmation.
 ```
@@ -119,6 +122,7 @@ Please confirm this shooting script, or tell me which shot to revise. I will gen
 - Be specific enough that each row can become an image prompt without reinterpretation.
 - Tie every pose, camera angle, and light choice to a garment property or sales purpose.
 - Keep the selected indoor set consistent across all rows.
-- Keep the model's height, head-to-body ratio, and leg-length ratio consistent across all rows.
+- Keep the model's height, head-to-body ratio, and leg-length ratio consistent across all rows by writing the proportion lock into camera and model-direction decisions, not as an extra table column.
 - Do not introduce props or actions that hide the product.
-- Keep the user's original four deliverables and constraints unchanged.
+- Never replace 创意特性图 with a generic dynamic candid; motion is allowed only when it expresses the product's core physical selling point.
+- Keep the user's original four-image constraints unchanged.

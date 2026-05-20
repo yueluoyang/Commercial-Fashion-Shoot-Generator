@@ -1,6 +1,6 @@
 # Garment Analysis
 
-Analyze the product images before recommending scenes or generating. The goal is to create a tight invariant list that can be repeated in every image prompt.
+Use this only as a supporting checklist inside the fused multimodal product analysis in `shooting-script-guide.md`. Do not run it as a separate workflow stage before the guide-based product analysis. The goal is to create a tight invariant list that can be repeated in every image prompt.
 
 ## Analysis Checklist
 

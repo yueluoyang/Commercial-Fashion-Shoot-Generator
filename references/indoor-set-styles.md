@@ -1,6 +1,6 @@
 # Indoor Set Styles
 
-Recommend 2-3 indoor set styles after garment analysis and guide-based product-attribute thinking. Each option must be compatible with the garment's color, silhouette, fabric, physical selling point, fixed model proportions, and commercial sales purpose.
+Recommend 2-3 indoor set styles after the fused guide-based multimodal product analysis. Each option must be compatible with the garment's color, silhouette, fabric, physical selling point, creative feature image logic, fixed model proportions, and commercial sales purpose.
 
 ## Option Format
 
@@ -62,7 +62,7 @@ Use or adapt these, keeping the choices specific to the product:
 ## Recommendation Rules
 
 - Do not recommend outdoor scenes unless the user overrides the workflow.
-- Recommend scenes only after identifying the product's core physical selling point and four-shot ecommerce logic from `shooting-script-guide.md`.
+- Recommend scenes only after identifying the product's core physical selling point and the 正面图 / 背面图 / 细节特写图 / 创意特性图 ecommerce logic from `shooting-script-guide.md`.
 - Avoid busy sets that compete with the garment.
 - Do not let props cover the front, back, hem, waistline, or key construction details.
 - Avoid furniture height, lens height, mirrors, stairs, or extreme perspective choices that change the locked model proportions.
