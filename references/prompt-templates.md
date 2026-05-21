@@ -85,11 +85,17 @@ Use this add-on only after the first batch is fully confirmed by the user and th
 ```text
 Color variant mode: create the [target color name] version of the approved four-image gallery.
 
-Additional input image(s): use the queued or newly uploaded color-variant product reference only to capture the new garment color, fabric color behavior, and any color-specific material appearance. Do not copy a different model, pose, background, face, body, or styling from the color reference.
+Additional input image(s): use the queued or newly uploaded color-variant product reference only to capture the new garment color, fabric color behavior, and any color-specific material appearance. If the reference contains an old model, visible face, hair, skin, body, pose, background, or previous generated-image style, treat the reference as a color-only garment reference. Ignore every person-related and scene-related attribute in it.
+
+Color/material isolation note: [paste the extracted target color name, undertone, saturation, brightness, sheen, texture, opacity, and color-specific highlight/shadow behavior from the garment region. State whether the source is garment-only, cropped, swatch, or full old-model reference.]
+
+Input isolation: if the color source is a full old-model reference with a visible face/body, do not include that full image as an `image_gen` input. Use the color/material isolation note instead, or attach only a garment-only crop, close-up, product-only image, or color swatch.
 
 Keep unchanged: same model identity as the approved first batch; fixed 1.68m height, 7.5-head ratio, and 0.64 leg-length ratio as the underlying body; same base indoor set; same four-shot script structure; same styling-completion logic and footwear rule; same garment silhouette, neckline, sleeves/straps, length, seams, ruffles, pleats, closures, hem, and construction details; same 3:4 vertical ratio; same commercial ecommerce polish.
 
 Allowed optional scene adjustment: if the user approved color-matched set tweaks, adjust only small props or decorative accents such as flowers, vase color, textile accent, small object color, or greenery tone so the set harmonizes with the new garment color. Do not change the room architecture, main furniture, camera logic, lighting continuity, or shot purpose.
 
-Color accuracy: match the target color reference faithfully while preserving realistic fabric texture and lighting. Avoid hue drift, invented patterns, extra trims, extra accessories, or changing the garment design.
+Identity protection: the target identity always comes from the original model reference and the approved first-batch gallery, never from the color reference. Do not use the color reference's face, hairstyle, makeup, skin tone, body proportions, pose, camera angle, background, lighting style, or old garment styling.
+
+Color accuracy: match the isolated garment color/material note faithfully while preserving realistic fabric texture and lighting. Avoid hue drift, invented patterns, extra trims, extra accessories, changing the garment design, or drifting toward the old color-reference model.
 ```

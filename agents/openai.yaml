@@ -1,4 +1,4 @@
 interface:
   display_name: "Commercial Fashion Shoot Generator"
-  short_description: "Plan ecommerce galleries with gated variants."
-  default_prompt: "Use $commercial-fashion-shoot-generator to analyze my model and product images, queue any early color variants until first-batch approval, recommend indoor set styles, draft a front/back/detail/creative-feature script, generate the gallery, ask for corrections, and optionally create color variants."
+  short_description: "Plan ecommerce galleries with clean variants."
+  default_prompt: "Use $commercial-fashion-shoot-generator to analyze my model and product images, queue any early color variants until first-batch approval, isolate color refs from old model identity, recommend indoor set styles, draft a front/back/detail/creative-feature script, generate the gallery, ask for corrections, and optionally create color variants."

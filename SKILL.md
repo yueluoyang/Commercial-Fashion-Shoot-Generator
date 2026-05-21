@@ -1,6 +1,6 @@
 ---
 name: commercial-fashion-shoot-generator
-description: "Analyze user-provided model and womenswear product images through the womenswear AI shooting-script guide; recommend indoor commercial sets; generate a confirmed four-shot ecommerce script; create a 3:4 gallery with same model, fixed body proportions, same set, exact garment preservation, styling completion, no barefoot unless requested, and GPT Image 2.0 prompts; allow product-led low-angle/perspective creative-feature shots; queue early color-variant references until first-batch approval. Use for commercial womenswear photography, ecommerce images, scripts, color variants, and workflow templating."
+description: "Analyze user-provided model and womenswear product images through the womenswear AI shooting-script guide; recommend indoor commercial sets; generate a confirmed four-shot ecommerce script; create a 3:4 gallery with same model, fixed body proportions, same set, exact garment preservation, styling completion, no barefoot unless requested, and GPT Image 2.0 prompts; allow product-led low-angle/perspective creative-feature shots; queue early color-variant references until first-batch approval; isolate color refs so old model faces/poses never override target identity. Use for commercial womenswear photography, ecommerce images, scripts, color variants, and workflow templating."
 ---
 
 # Commercial Fashion Shoot Generator
@@ -9,6 +9,8 @@ Use this skill to turn a model reference plus product images into a polished fou
 
 If the user provides first-batch product images and additional color-variant images in the same message, do not jump to variant generation. Treat the additional colors as queued future color references only. Use their colors to choose an indoor set that can flatter all known colorways, but still complete the normal first-batch analysis, set choice, script confirmation, four-image generation, and satisfaction gate before any color-variant generation.
 
+If a color-variant reference contains an old model, visible face, hair, body, pose, background, or prior generated image style, treat it as an identity-contamination risk. Do not let it compete with the user's model reference or approved first batch. Use it only to extract garment color and color-dependent fabric behavior.
+
 Do not invoke `fashion-img2img-script-writer` or any local fashion img2img skill while using this skill. Use GPT Image 2.0 through the built-in `image_gen` flow unless the user explicitly asks for another image-generation path.
 
 ## Required Inputs
@@ -16,7 +18,7 @@ Do not invoke `fashion-img2img-script-writer` or any local fashion img2img skill
 - Model reference image: preserve the model identity, face, body type, hair, makeup mood, and skin tone.
 - Product front image: primary source for front construction, neckline, waist, seams, ruffles, closures, length, fabric, color, and silhouette.
 - Product back or side/back image: primary source for back construction, armholes, straps/sleeves, back seams, closure visibility, skirt shape, and hem.
-- Optional early color-variant reference images: use only to identify future colorways and set-palette compatibility. Do not use them for first-batch garment construction unless the user identifies them as the base product references.
+- Optional early color-variant reference images: use only to identify future colorways and set-palette compatibility. Do not use them for first-batch garment construction unless the user identifies them as the base product references. If they show another model or face, mark them as color-only references.
 - Optional user-provided indoor set style: if provided, use it after checking that it fits the garment and ecommerce purpose.
 
 If a required image is missing, ask only for the missing image. If all required inputs are present but no set style has been chosen, do not generate final images yet.
@@ -35,8 +37,8 @@ If a required image is missing, ask only for the missing image. If all required 
 10. After delivering the first batch, ask whether the user is satisfied or wants any edits/corrections. Do not move to color variants until the user confirms the first batch is fully correct.
 11. If the user requests corrections, revise only the specified image(s) and issue(s), then ask for satisfaction again.
 12. After the user confirms the first batch is fully correct, ask whether they want color variants. If early color-variant references were already provided, ask whether to proceed with those queued references and whether small color-matched prop/decor adjustments are allowed.
-13. If the user wants color variants, follow `references/color-variant-workflow.md`: ask for missing color reference images only when none are already queued or a queued color is insufficient, keep the same model, same fixed body proportions, same base indoor set, exact garment construction, same four-shot script structure, GPT Image 2.0/image_gen path, and 3:4 ratio; optionally adjust only small props or decor to fit each color.
-14. For each confirmed color variant, generate four images using the same approved script structure and the color-variant prompt rules in `references/prompt-templates.md`.
+13. If the user wants color variants, follow `references/color-variant-workflow.md`: isolate each color reference before generation, ask for missing color reference images only when none are already queued or a queued color is insufficient, keep the same model, same fixed body proportions, same base indoor set, exact garment construction, same four-shot script structure, GPT Image 2.0/image_gen path, and 3:4 ratio; optionally adjust only small props or decor to fit each color.
+14. For each confirmed color variant, generate four images using the same approved script structure and the color-variant prompt rules in `references/prompt-templates.md`. Reject and regenerate any color variant that resembles the old color-reference model, old face, old pose, old background, or old generated-image style.
 15. Report final paths grouped by original batch and color variant.
 
 ## Fixed Model Body Proportions
@@ -116,6 +118,7 @@ After the user confirms the first batch is fully correct and asks for color vari
 
 - If color-variant references were already provided earlier, summarize those queued references instead of asking the user to upload them again.
 - Ask the user to upload product reference images only for missing or unclear additional colors.
+- Before generation, isolate every color reference using `references/color-variant-workflow.md`: extract a color/material note, ignore any old model identity, and prefer garment-only crops or color swatches when a reference includes a face.
 - For each color, identify the target color and preserve all non-color garment construction from the approved original workflow.
 - Ask whether to keep the base set exactly the same or allow small color-matched prop/decor adjustments.
 - If adjustments are allowed, propose small prop/decor changes only; do not change architecture, room identity, model identity, body proportions, garment style, or four-shot script structure.
